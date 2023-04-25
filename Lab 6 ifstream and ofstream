@@ -1,0 +1,40 @@
+/* A program that gives and takes advice on program writing                                                                                                                                                 
+Last edited: 3/3/2022    */                                                                                                                                                                                             
+                                                                                                                                                                                        
+#include <iostream>
+#include <fstream> // has the ability to handle both ifstream and ofstream                                                                                                                                  
+using namespace std;
+
+int main ()
+{
+  string input; // the name of the text file which will contains strings from the user                                                                                                                      
+  fstream inout; // to either read or write inout                                                                                                                                                           
+
+  inout.open("input.txt",ios::in); // reads inout                                                                                                                                                           
+  if(inout.fail()) {
+    cout << "Error file could not be opened\n";
+    return 1;
+  }
+  getline(inout,input);
+  while(inout) {
+    cout << input << endl;
+    getline(inout,input);
+  }
+  inout.close();
+  inout.clear();
+
+  inout.open("input.txt",ios::out|ios::app); // writes inout                                                                                                                                                
+  if(inout.fail()) {
+    cout << "Error file could not be opened\n";
+    return 1;
+  }
+  cout << "Please enter your advice to the next user. Hit ENTER twice to exit:\n";
+  getline(cin,input);
+  while(input.length()>0) {
+    inout << input << endl;
+    getline(cin,input);
+  }
+  inout.close();
+  return 0;
+}
+
