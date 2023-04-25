@@ -1,0 +1,36 @@
+/* After a class about string and its predefined functions, we were tasked to print out names in a standard order.                                                                                                                                                                      
+A program that prompts the user for a name, reads it, then figures out which version of the name they used. 
+Regardless of the version this program should print it in First name, Last name order.                                                                                                                                                                 
+Last edited 3/24/2022 */                                                                                                                                                                                               
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+
+  string name, Fname, Lname;
+  
+  cout << "Enter your full name: ";
+                                                                                                                                          
+  getline(cin, name); // this is so multiple string variables don't have to be created  
+                                                                                                                                                  
+  for (int i = 0; i < name.size(); i++) { // this makes sure the everything the user inputs is read                                                                                                                                                        
+    if(name[i] == ' ') {  // when a space is inputed                                                                                                                                                             
+      Fname = name.substr(0,i); // how to tell where the first name is   (location)                                                                                                                                                           
+      Lname = name.substr(i+1, name.size()); // how to tell where the last name is
+      cout << "Output: " << Fname << ' ' << Lname << endl;
+      break;
+    }
+    
+    // another statement for when the user uses a comma                                                                                                                                                    
+    else if (name[i] == ',') {                                                                                                                                                                
+      Lname = name.substr(0,i);                                                                                                                                                                
+      Fname = name.substr(i+1, name.size());
+      cout << "Output: " << Fname << ' ' << Lname << endl;                                                                                                                                       
+      break; // break to prevent something unecessary from printing 
+    }
+  }
+
+  return 0;
+}
