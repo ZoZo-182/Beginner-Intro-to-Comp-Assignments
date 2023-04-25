@@ -1,0 +1,32 @@
+/* After a class about do while loops, we were to implement one in this lab assignment.
+This is a program that reads in the number of liters of gasoline consumed by the user's car and the number of
+miles traveled by the car, and then outputs the number of miles per gallon the car delivered.                                                                                                                                                                                               
+Lasted edited: 2/17/22  */                                                                                                                                                                                                
+
+#include <iostream>
+using namespace std;
+
+const double liter = 0.0264179; // this is the globally defined constant for the number of gallons per liter                                                                                                
+
+int main() {
+  bool again;
+  char choice; // so the user can later enter Y or N when asked to                                                                                                                                          
+  double liters, miles;
+  double mpg; // a variable that stands for miles per gallon                                                                                                                                                
+  do {
+    cout << "Please enter the number of liters and the number of miles: " << endl;
+    cin >> liters;
+    cin >> miles;
+    mpg = miles / (liters * 0.264179); // the equation for finding miles per gallon                                                                                                                         
+    cout << "Miles per gallon is : " << mpg << endl; // prints the miles per gallon                                                                                                                         
+    cout << "Continue(Y/N)?" << endl; // asks the user if they want to continue                                                                                                                             
+    cin >> choice;
+  } while (choice == 'Y'); {
+    again = true; }
+  if (choice == 'N'); {
+    again = false; }
+
+
+  return 0;
+}
+
