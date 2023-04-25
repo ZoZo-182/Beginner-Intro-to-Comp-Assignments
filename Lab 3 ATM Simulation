@@ -1,0 +1,46 @@
+// After a lesson about characters we were assigned to create a simple simulation of an ATM machine.                                                                                                                                                                                                                                                                                                                                                                
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  int amountd, amountw, balance = 1000; // amountd = deposit amount, amountw = withdraw amount                                                                                                              
+  char ch; // letter  choice                                                                                                                                                                                
+
+  cout << "Select an option: " << endl;
+  cout << "--(C)heck your balance" << endl;
+  cout << "--(D)eposit" << endl;
+  cout << "--(W)ithdraw" << endl;
+  cout << "--(E)xit" << endl;
+  cin >> ch;
+
+  if (ch == 'C') cout << "Your balance now is: 1000" << endl; // C for check                                                                                                                                
+
+  else if (ch == 'D') { // D for deposit                                                                                                                                                                    
+    cout << "How much do you want to deposit? " << endl;
+    cin >> amountd;
+    cout << "Your current balance is: " << amountd + balance << endl;
+  }
+
+  else if (ch == 'W') { // W for withdraw                                                                                                                                                                   
+    cout << "How much do you want to withdraw? " << endl;
+    cin >> amountw;
+    if (amountw < balance) {
+      cout << "Your current balance is: " << balance - amountw << endl; }
+    if (amountw > balance) {
+      cout << "Insufficient funds. " << endl;
+    }
+  }
+
+  else if (ch == 'E') { // E for exit                                                                                                                                                                       
+    cout << "Session terminated." << endl;
+  }
+
+  else {
+    cout << ch << " is not a legal input. Please try again." << endl;
+ }
+
+  return 0;
+}
+
