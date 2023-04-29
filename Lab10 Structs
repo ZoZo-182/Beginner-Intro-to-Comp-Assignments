@@ -1,0 +1,46 @@
+/* A program that has two funtions. One gets two points from the user and the other takes those points and returns the area and perimeter.                                                                                                                                                                                         
+Lasted Edited: 4/6/2022  */                                                                                                                                                                                               
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// a struct called Point that has two double values, x and y                                                                                                                                                
+struct Point {
+  double x;
+  double y;
+};
+
+//get Point data from user and return Point                                                                                                                                                                 
+Point userinput(){
+  //define variable p of type Point                                                                                                                                                                         
+  struct Point p; 
+  cout << "x value:\n";
+  // below reads the x value                                                                                                                                                                                
+  cin >> p.x;
+  cout << "y value:\n";
+  // below reads the y value                                                                                                                                                                                
+  cin >> p.y;
+
+  return p;
+}
+
+// Below calculated perimeter and area and then prints the values. 
+void printPerimeterAndArea(Point p1,Point p2){                                                                                                                                                                                   
+  double perimeter = 2 * (abs(p1.x - p2.x) + abs(p1.y-p2.y));                                                                                                                                                                                        
+  double area = abs(p1.x - p2.x) * abs(p1.y-p2.y);                                                                                                                                                                               
+  cout << ">>> Perimeter = " << perimeter << endl;
+  cout << ">>> Area = " << area << endl;
+}
+
+// Below gets the first and second point data inputted by the user and hten prints the values.
+int main()
+{
+  cout<<"Give 2 points, this program outputs the perimeter and area\n" << endl;
+  cout<<"For the first point, bottom left " <<endl;                                                                                                                                                  
+  struct Point p1 = userinput();
+  cout<<"For the second point, top right"<<endl;                                                                                                                                                      
+  struct Point p2 = userinput();                                                                                                                                                                               
+  printPerimeterAndArea(p1,p2);
+
+  return 0;
+}
